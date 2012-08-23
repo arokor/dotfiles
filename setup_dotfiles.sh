@@ -1,23 +1,23 @@
 #!/bin/bash
 
-echo "Setting up dotfiles..."
+echo "Setting up dotfiles"
 
 function replace() {
   rm -f $1
   ln -s $2 $1
 }
 
-replace ~/.gitconfig ~/dotfiles/gitconfig
-replace ~/.gitignore ~/dotfiles/gitignore
-replace ~/.vimrc ~/dotfiles/vimrc
-replace ~/.vim ~/dotfiles/vim
+replace ~/.gitconfig ~/.dotfiles/gitconfig
+replace ~/.gitignore ~/.dotfiles/gitignore
+replace ~/.vimrc ~/.dotfiles/vimrc
+replace ~/.vim ~/.dotfiles/vim
 
-echo "Done"
+echo "Done..."
 
 
+echo "Installing vim plugins"
 
-echo "Downloading vim plugins..."
+git submodule init
+git submodule update
 
-git submodule update --init
-
-echo "Done"
+echo "Done..."
