@@ -1,0 +1,12 @@
+[user]
+	name = Aron Kornhall
+	email = git@kornhall.se
+[alias]
+  br = branch
+  ci = commit
+  co = checkout
+  ld = log --diff-filter=D --summary
+  ls = ls-files
+  st = status
+[core]
+	excludesfile = ~/.gitignore
