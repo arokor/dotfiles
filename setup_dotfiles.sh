@@ -7,10 +7,10 @@ function replace() {
   ln -s $2 $1
 }
 
-replace ~/.gitconfig ~/.dotfiles/gitconfig
-replace ~/.gitignore ~/.dotfiles/gitignore
-replace ~/.vimrc ~/.dotfiles/vimrc
-replace ~/.vim ~/.dotfiles/vim
+replace ~/.gitconfig ~/dotfiles/gitconfig
+replace ~/.gitignore ~/dotfiles/gitignore
+replace ~/.vimrc ~/dotfiles/vimrc
+replace ~/.vim ~/dotfiles/vim
 
 echo "Done..."
 
