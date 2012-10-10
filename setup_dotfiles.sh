@@ -11,6 +11,7 @@ replace ~/.gitconfig ~/dotfiles/gitconfig
 replace ~/.gitignore ~/dotfiles/gitignore
 replace ~/.vimrc ~/dotfiles/vimrc
 replace ~/.vim ~/dotfiles/vim
+replace ~/.jshintrc ~/dotfiles/jshintc
 
 echo "Done..."
 
