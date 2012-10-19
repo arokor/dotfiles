@@ -87,6 +87,10 @@ set clipboard+=unnamed
 syntax on "Syntax
 runtime macros/matchit.vim "Match if/else/tags etc. with %
 
+"Typescript
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
 "Comments
 vnoremap <F4> :s/^/\/\//<bar>gv<CR><bar>:'<,'>s/^\/\/\/\///e<CR>gv
 nnoremap <F4> :s/^/\/\//<bar>:s/^\/\/\/\///e<CR>
