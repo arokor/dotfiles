@@ -20,7 +20,7 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 call togglebg#map("<F5>")
 
 "Setup editor font
-set guifont=Inconsolata-dz\ 14,Consolas:h14
+set guifont=Inconsolata-dz:h14,Inconsolata-dz\ 14,Consolas:h14
 nnoremap <F3> :set guifont=*<CR>
 
 "Toggle Menu and Toolbar
