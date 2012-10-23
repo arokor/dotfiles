@@ -12,6 +12,7 @@ replace ~/.gitignore ~/dotfiles/gitignore
 replace ~/.vimrc ~/dotfiles/vimrc
 replace ~/.vim ~/dotfiles/vim
 replace ~/.jshintrc ~/dotfiles/jshintrc
+replace ~/.bash_profile ~/dotfiles/bash_profile
 
 echo "Done..."
 
