@@ -37,11 +37,36 @@ map <silent> <F6> :if &guioptions =~# 'T' <Bar>
 "Leader
 let mapleader = ","
 
+"Easy .vimrc handling
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"Swedish layout
+nnoremap ö :
+nnoremap : <nop> "relearn
+nnoremap § ^
+
+"Reduce strain
+inoremap kj <Esc>
+
+"make j and k do what they should
+nnoremap j gj
+nnoremap k gk
+
+"simplify window navigation
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+"center on search
+nnoremap n nzz
+nnoremap N Nzz
+
 "character encoding
 set encoding=utf-8
 
 "Look and feel
-"colorscheme desert
 set background=dark
 colorscheme solarized
 
@@ -88,8 +113,8 @@ syntax on "Syntax
 runtime macros/matchit.vim "Match if/else/tags etc. with %
 
 "Typescript
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
+"autocmd QuickFixCmdPost [^l]* nested cwindow
+"autocmd QuickFixCmdPost    l* nested lwindow
 
 "Comments
 vnoremap <F4> :s/^/\/\//<bar>gv<CR><bar>:'<,'>s/^\/\/\/\///e<CR>gv
@@ -111,8 +136,6 @@ nmap <silent> <leader>s :set spell!<CR>
 
 "Lauch in Node
 nnoremap <F9> :w<CR>:!node %<CR>
-
-
 
 "Use templates in ~/.vim/skel/
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
