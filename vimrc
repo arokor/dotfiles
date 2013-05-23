@@ -43,7 +43,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "Swedish layout
 nnoremap ö :
-nnoremap : <nop> "relearn
+vnoremap ö :
 nnoremap § ^
 
 "Reduce strain
@@ -68,7 +68,9 @@ set encoding=utf-8
 
 "Look and feel
 set background=dark
-colorscheme solarized
+if has('gui_running')
+  colorscheme solarized
+endif
 
 set nu "line numbers
 set colorcolumn=85
@@ -111,14 +113,6 @@ set clipboard+=unnamed
 "Code
 syntax on "Syntax
 runtime macros/matchit.vim "Match if/else/tags etc. with %
-
-"Typescript
-"autocmd QuickFixCmdPost [^l]* nested cwindow
-"autocmd QuickFixCmdPost    l* nested lwindow
-
-"Comments
-vnoremap <F4> :s/^/\/\//<bar>gv<CR><bar>:'<,'>s/^\/\/\/\///e<CR>gv
-nnoremap <F4> :s/^/\/\//<bar>:s/^\/\/\/\///e<CR>
 
 "Backspace
 set backspace=indent,eol,start

@@ -25,6 +25,7 @@
 *.log
 *.sql
 *.sqlite
+*.rdb
 
 # OS generated files #
 ######################
@@ -39,6 +40,7 @@ Thumbs.db
 *.swp
 *.swo
 *.swn
+*.swm
 
 # Git #
 ########
@@ -47,3 +49,7 @@ Thumbs.db
 # Node #
 ########
 node_modules/
+
+# Local tests #
+# #############
+__zak_*
