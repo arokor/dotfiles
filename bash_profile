@@ -14,4 +14,7 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias home='cd ~'
+
+ulimit -n 10000
+
 source /Users/aron/.castmillrc

@@ -37,6 +37,9 @@ map <silent> <F6> :if &guioptions =~# 'T' <Bar>
 "Leader
 let mapleader = ","
 
+"Sudo save
+cmap w!! %!sudo tee > /dev/null %
+
 "Easy .vimrc handling
 nnoremap <leader>ev :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
