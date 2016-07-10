@@ -1,15 +1,6 @@
-"Temporarily turn off filetype indentation
-filetype off
-
-"Load Pathogen
-call pathogen#infect()
-
 "Turn filetype indentation on again
 filetype plugin indent on
 syntax enable
-
-"Configure Nerd Tree
-map <F2> :NERDTreeToggle<CR>
 
 "Configure Syntastic
 let g:syntastic_enable_signs=1

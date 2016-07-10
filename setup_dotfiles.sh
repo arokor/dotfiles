@@ -11,15 +11,9 @@ replace ~/.gitconfig ~/dotfiles/gitconfig
 replace ~/.gitignore ~/dotfiles/gitignore
 replace ~/.vimrc ~/dotfiles/vimrc
 replace ~/.vim ~/dotfiles/vim
-replace ~/.jshintrc ~/dotfiles/jshintrc
-replace ~/.bash_profile ~/dotfiles/bash_profile
 
-echo "Done..."
-
-
-echo "Installing vim plugins"
-
-git submodule init
-git submodule update
+echo "Setting up neovim"
+replace ~/.nvimrc ~/.vimrc
+replace ~/.nvim ~/.vim
 
 echo "Done..."
