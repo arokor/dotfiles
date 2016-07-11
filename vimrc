@@ -1,3 +1,22 @@
+"Plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/syntastic'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-unimpaired'
+Plug 'tomtom/tcomment_vim'
+
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+Plug 'pangloss/vim-javascript'
+Plug 'vim-scripts/JSON.vim'
+Plug 'groenewege/vim-less'
+
+
 "Turn filetype indentation on again
 filetype plugin indent on
 syntax enable
@@ -8,6 +27,7 @@ let g:syntastic_auto_jump=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
 "Configure Solarized
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 call togglebg#map("<F5>")
 
 "Setup editor font
@@ -39,6 +59,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap ö :
 vnoremap ö :
 nnoremap § ^
+
+"US layout
+nnoremap ; :
+vnoremap ; :
 
 "Reduce strain
 inoremap kj <Esc>

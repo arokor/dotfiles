@@ -13,7 +13,7 @@ replace ~/.vimrc ~/dotfiles/vimrc
 replace ~/.vim ~/dotfiles/vim
 
 echo "Setting up neovim"
-replace ~/.nvimrc ~/.vimrc
-replace ~/.nvim ~/.vim
+replace ~/.config/nvim ~/.vim
+replace ~/.config/nvim/init.vim ~/.vimrc
 
 echo "Done..."
