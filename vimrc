@@ -155,3 +155,7 @@ nnoremap <F9> :w<CR>:!node %<CR>
 
 "Use templates in ~/.vim/skel/
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+
+nmap <leader>k :Explore<cr>
+nmap <leader>l :Lexplore<cr>
+let g:netrw_liststyle=3
