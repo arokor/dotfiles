@@ -1,8 +1,11 @@
+"
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "Plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/syntastic'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -16,6 +19,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/JSON.vim'
 Plug 'groenewege/vim-less'
 
+call plug#end()
 
 "Turn filetype indentation on again
 filetype plugin indent on
@@ -25,10 +29,6 @@ syntax enable
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-
-"Configure Solarized
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-call togglebg#map("<F5>")
 
 "Setup editor font
 set guifont=Inconsolata-dz:h14,Inconsolata-dz\ 14,Consolas:h14
@@ -85,10 +85,14 @@ nnoremap N Nzz
 set encoding=utf-8
 
 "Look and feel
+
+" colorscheme solarized
+colorscheme gruvbox
+
 set background=dark
-if has('gui_running')
-  colorscheme solarized
-endif
+
+call togglebg#map("<F5>")
+
 
 set nu "line numbers
 set colorcolumn=85
