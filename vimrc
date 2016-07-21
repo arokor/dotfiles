@@ -12,6 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-unimpaired'
 Plug 'tomtom/tcomment_vim'
+Plug 'neomake/neomake'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -21,6 +22,7 @@ Plug 'groenewege/vim-less'
 
 call plug#end()
 
+
 "Turn filetype indentation on again
 filetype plugin indent on
 syntax enable
@@ -29,6 +31,15 @@ syntax enable
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+"neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd! BufWritePost * Neomake
+nmap <Leader><Space>o :lopen<CR>      " open location window
+nmap <Leader><Space>c :lclose<CR>     " close location window
+nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>      " next error/warning
+nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
 "Setup editor font
 set guifont=Inconsolata-dz:h14,Inconsolata-dz\ 14,Consolas:h14
