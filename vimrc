@@ -22,7 +22,6 @@ Plug 'groenewege/vim-less'
 
 call plug#end()
 
-
 "Turn filetype indentation on again
 filetype plugin indent on
 syntax enable
@@ -87,6 +86,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+"Neovim terminal
+tnoremap <leader>t <C-\><C-n>
 
 "center on search
 nnoremap n nzz
