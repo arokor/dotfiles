@@ -41,6 +41,7 @@ Thumbs.db
 *.swo
 *.swn
 *.swm
+.netrwhist
 
 # Git #
 ########
