@@ -1,13 +1,23 @@
 [user]
 	name = Aron Kornhall
 	email = aron@kornhall.se
+[push]
+  default = simple
 [alias]
+  ci = commit                         # commit
+  ca = commit -am                     # commit all with message
+  c = commit -m                       # commit with message
+  amend = commit --amend              # amend last commit
+  amen = commit --amend --no-edit     # amend last commit without prompting for commit message
+
   br = branch
-  ci = commit
   co = checkout
-  ld = log --oneline --graph
+  fe = fetch
+
+  lg = log --oneline --graph
+  ls = log --stat --pretty=short --graph
   ld = log --diff-filter=D --summary
-  ls = ls-files
+
   st = status
 [core]
 	excludesfile = ~/.gitignore
