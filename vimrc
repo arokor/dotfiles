@@ -3,7 +3,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/syntastic'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
@@ -19,8 +18,12 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/JSON.vim'
 Plug 'groenewege/vim-less'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+"Python path
+let g:python_host_prog = '/usr/bin/python'
 
 "Turn filetype indentation on again
 filetype plugin indent on
