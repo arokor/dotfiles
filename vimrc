@@ -18,7 +18,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/JSON.vim'
 Plug 'groenewege/vim-less'
-Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
