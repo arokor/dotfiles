@@ -54,3 +54,7 @@ node_modules/
 # Local tests #
 # #############
 __zak_*
+_ak_*
+
+# ctags #
+tags

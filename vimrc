@@ -1,10 +1,15 @@
 "
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 "Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
+"Color schemes
 Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+" Plug 'frankier/neovim-colors-solarized-truecolor-only'
+
+" General plugins
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -15,33 +20,37 @@ Plug 'neomake/neomake'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-Plug 'pangloss/vim-javascript'
-Plug 'vim-scripts/JSON.vim'
+" LANGUAGES AND FILE TYPES
+Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'jason0x43/vim-js-indent'
+
+" Typescript
+Plug 'leafgarland/typescript-vim' " syntax highlighting
+Plug 'Quramy/tsuquyomi', {'do': 'npm install -g typescript'} " completion, navigate etc
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+
+" Status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 "Python path
 let g:python_host_prog = '/usr/bin/python'
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 "Turn filetype indentation on again
 filetype plugin indent on
 syntax enable
-
-"Configure Syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=1
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-
-"neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
-autocmd! BufWritePost * Neomake
-nmap <Leader><Space>o :lopen<CR>      " open location window
-nmap <Leader><Space>c :lclose<CR>     " close location window
-nmap <Leader><Space>, :ll<CR>         " go to current error/warning
-nmap <Leader><Space>n :lnext<CR>      " next error/warning
-nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
 "Setup editor font
 set guifont=Inconsolata-dz:h14,Inconsolata-dz\ 14,Consolas:h14
@@ -60,6 +69,20 @@ map <silent> <F6> :if &guioptions =~# 'T' <Bar>
 
 "Leader
 let mapleader = ","
+
+"neomake
+le t g:neomake_javascript_enabled_makers = ['eslint']
+le t g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
+autocmd! BufWritePost * Neomake
+nmap <Leader><Space>o :lopen<CR>      " open location window
+nmap <Leader><Space>c :lclose<CR>     " close location window
+nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>      " next error/warning
+nmap <Leader><Space>p :lprev<CR>      " previous error/warning
+
+"FZF
+nnoremap <Leader>: :Buffers<CR>
+nnoremap <Leader>; :Files<CR>
 
 "Sudo save
 cmap w!! %!sudo tee > /dev/null %
@@ -91,7 +114,19 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 "Neovim terminal
+nnoremap <leader>t :split +terminal<cr>
 tnoremap <leader>t <C-\><C-n>
+tnoremap kj <C-\><C-n>
+
+augroup neovim_terminal
+  autocmd!
+
+  " Enter Terminal-mode (insert) automatically
+  autocmd TermOpen * startinsert
+
+  " Disables number lines on terminal buffers
+  autocmd TermOpen * :set nonumber norelativenumber
+augroup END
 
 "center on search
 nnoremap n nzz
@@ -102,8 +137,12 @@ set encoding=utf-8
 
 "Look and feel
 
-" colorscheme solarized
-colorscheme gruvbox
+colorscheme solarized
+" colorscheme gruvbox
+" let g:solarized_termcolors=256
+
+let g:airline_theme='solarized'
+" let g:airline_solarized_bg='dark'
 
 set background=dark
 
@@ -131,9 +170,15 @@ set smartcase "caps => case sensitive
 
 "tabs
 set expandtab
+
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
+
+" 4 char indentation
+" set shiftwidth=4
+" set tabstop=4
+" set softtabstop=4
 
 "Indentation
 vnoremap < <gv
@@ -169,13 +214,17 @@ nmap <silent> <leader>s :set spell!<CR>
 "Lauch in Node
 nnoremap <F9> :w<CR>:!node %<CR>
 
-"Use templates in ~/.vim/skel/
-autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+"Prettier
+nnoremap <leader>p :silent !npx prettier --config prettier.config.js --write %<cr>
+
+"JSON format
+nnoremap <leader>j :%!python -m json.tool<cr>
 
 "Configure netwr
 nmap <leader>k :Explore<cr>
 nmap <leader>l :Lexplore<cr>
 let g:netrw_liststyle=3
 let g:netrw_preview=1
-let g:netrw_winsize=25
+let g:netrw_winsize=20
+let g:netrw_banner=0
 

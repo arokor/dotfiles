@@ -18,3 +18,9 @@ alias home='cd ~'
 ulimit -n 10000
 
 source /Users/aron/.castmillrc
+
+export ANDROID_HOME=$HOME/Development/adt-bundle/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/emulator

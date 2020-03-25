@@ -3,24 +3,91 @@
 	email = aron@kornhall.se
 [push]
   default = simple
+[color]
+  ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = green
+  changed = red bold
+  untracked = magenta bold
 [alias]
+
+  # commit
   ci = commit                         # commit
   ca = commit -am                     # commit all with message
   c = commit -m                       # commit with message
+  cn = commit -n                      # commit without hooks
+  cf = commit --fixup                 # create fixup commit
   amend = commit --amend              # amend last commit
   amen = commit --amend --no-edit     # amend last commit without prompting for commit message
+  namen = commit -n --amend --no-edit # amend last commit without prompting for commit message
 
-  br = branch
-  co = checkout
+  # checkout
+  co = checkout                           # checkout
+  com = checkout master                   # checkout master
+  cod = checkout develop                  # checkout develop
+
+  # fetch
   fe = fetch
+  fo = fetch origin
 
+  # pull
+  pl = pull
+  prod = pull --rebase origin develop
+
+  # push
+  ps = push
+  po = !sh -c 'git push -u origin `git rev-parse --abbrev-ref HEAD`' -
+
+  # rebase
+  rod = rebase origin/develop
+  riod = rebase -i origin/develop
+
+  # branch
+  br = branch
+
+  # status
+  st = status
+
+  # log
+  l = log --graph --date=short
   lg = log --oneline --graph
   ls = log --stat --pretty=short --graph
   ld = log --diff-filter=D --summary
 
-  st = status
+  # reset
+  unstage = reset HEAD              # remove files from index (tracking)
+  us      = reset HEAD
+  uncommit = reset HEAD^            # go back before last commit, with files in uncommitted state
+  uc       = reset HEAD^
+
+  # wip
+  wip = !git add . && git commit -n -m "WIP"
+
+  # diff
+  d = diff                          # diff unstaged changes
+  dc = diff --cached                # diff staged changes
+  last = diff HEAD^                 # diff last committed change
+
+  # recent branches
+  rb = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+
+  # gitlab
+  mr = !sh -c 'git fetch origin merge-requests/$1/head:mr-origin-$1 && git checkout mr-origin-$1' -
+
+  # clean merged
+  clm = !sh -c 'git branch --merged develop | grep -v master | grep -v develop | xargs -n 1 git branch -d' -
+
 [core]
 	excludesfile = ~/.gitignore
-	editor = /usr/bin/vim
+	editor = /usr/bin/nvim
 [push]
 	default = simple
